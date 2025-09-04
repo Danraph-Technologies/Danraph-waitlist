@@ -12,7 +12,7 @@ import img9 from "../assets/Avatars.png";
 import img10 from "../assets/twitter.png";
 import img11 from "../assets/youtube.png";
 import img12 from "../assets/linkedin.png";
-import img13 from "../assets/facebooklogo.png";
+import img13 from "../assets/FacebookLogo.png";
 import img14 from "../assets/waitlist frame.png";
 import img15 from "../assets/car frame.png";
 import img16 from "../assets/frame run.png";
