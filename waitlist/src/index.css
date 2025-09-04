@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+    overflow-x: auto;   /* only scrolls when needed */
+    min-width: 300px;
+    
+  }
+  
+  
