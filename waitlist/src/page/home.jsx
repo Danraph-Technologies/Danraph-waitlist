@@ -76,7 +76,7 @@ function Home() {
                 alt="color"
                 className="absolute md:top-5 top-1 left-0 "
               />
-              <span className="relative z-10 text-black md:px-5 sm:px-4 px-2">
+              <span className="relative z-10 text-black md:px-5 sm:px-4 px-2 py-0 ">
                 Fingertips
               </span>
             </span>
