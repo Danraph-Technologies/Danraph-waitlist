@@ -19,8 +19,11 @@ import img16 from "../assets/frame run.png";
 import img17 from "../assets/hand-1.png";
 import img18 from "../assets/money.png";
 import img19 from "../assets/money hand.png";
-import img20 from "../assets/comma.png"
-import img21 from "../assets/..png"
+import img20 from "../assets/comma.png";
+import img21 from "../assets/..png";
+import img22 from "../assets/leftstand.png";
+import img23 from "../assets/right-stand.png";
+import img24 from "../assets/cars.png"
 
 function Home() {
   return (
@@ -190,8 +193,12 @@ function Home() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2  py-8 sm:py-14 gap-4 px-3 max-w-[1179px] w-full relative ">
-            <img src={img20} alt="" className="absolute bottom-20 -left-3"/>
-            <img src={img21} alt="" className="absolute bottom-24 md:-right-[14px] sm:-right-[5px] -right-[3px]"/>
+          <img src={img20} alt="" className="absolute bottom-20 -left-3" />
+          <img
+            src={img21}
+            alt=""
+            className="absolute bottom-24 md:-right-[14px] sm:-right-[5px] -right-[3px]"
+          />
           <div className="bg-white px-4 py-6 rounded-[10px] flex flex-col gap-4 z-10 ">
             <img src={img17} alt="" className="w-[50px]" />
             <h2 className="text-[20px] font-semibold">Easy Ride Management</h2>
@@ -224,6 +231,18 @@ function Home() {
               time.
             </p>
           </div>
+        </div>
+      </div>
+      <div className="relative flex justify-center items-center ">
+        <img src="" alt="" />
+        <img src="" alt="" />
+        <div className="max-w-[450px] w-full">
+          <h2 className="text-[36px] font-semibold ">Join the Waitlist Today</h2>
+          <p className="text-[20px]">
+            Don’t miss out! Be among the first to experience stress-free school
+            transport.
+          </p>
+          <img src={img24} alt="" className="w-[444px]  "/>
         </div>
       </div>
     </div>
