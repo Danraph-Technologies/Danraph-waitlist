@@ -8,7 +8,7 @@ import img5 from "../assets/danraph-vector.png";
 import img6 from "../assets/calender.png";
 import img7 from "../assets/arrow.png";
 import img8 from "../assets/locatiooon.png";
-import img9 from "../assets/avatars.png";
+import img9 from "../assets/Avatars.png";
 import img10 from "../assets/twitter.png";
 import img11 from "../assets/youtube.png";
 import img12 from "../assets/linkedin.png";
