@@ -84,9 +84,9 @@ function Home() {
               <img
                 src={img5}
                 alt="color"
-                className="absolute md:top-5 top-1 left-0 "
+                className="absolute inset-0 md:translate-y-3 translate-y-2 "
               />
-              <span className="relative z-10 text-black md:px-5 sm:px-4 px-2  ">
+              <span className="relative z-10 text-black md:px-7 sm:px-5 px-2 ">
                 Fingertips
               </span>
             </span>
