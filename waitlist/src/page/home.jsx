@@ -233,22 +233,23 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center px-3">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <div className="grid  grid-cols-1 sm:grid-cols-[45%_53%] items-center  md:grid-cols-[40%_56%] lg:gap-10 gap-3 ">
-          <div className="w-full">
-            <h2 className="lg:text-[36px] sm:text-[27px] text-[22px] font-semibold ">
+      <div className=" relative  flex justify-center items-center px-3">
+        <img src={img23} alt="" className="absolute md:-top-8 top-0 left-0"/>
+        <img src={img22} alt=""  className="absolute bottom-0 right-8 "/>
+
+        <div className="grid h-[100vh]  pt-10 grid-cols-1 sm:grid-cols-[45%_53%] items-center z-10  md:grid-cols-[40%_56%] lg:gap-10 gap-3 ">
+          <div className="w-full z-10">
+            <h2 className="lg:text-[36px] z-10 sm:text-[27px] text-[22px] font-semibold ">
               Join the Waitlist Today
             </h2>
             <p className="text-[#6C6C6C] lg:text-[20px] sm:text-[16px] text-[13px] ">
               Don’t miss out! Be among the first to experience stress-free
               school transport.
             </p>
-            <img src={img24} alt="" className="w-[444px]  "  />
+            <img src={img24} alt="" className="w-[444px] " />
           </div>
 
-          <div className="bg-[#E3E3E3] w-full pt-10 pb-8  px-5 rounded-[5px] shadow-md shadow-[#a5a5a5] ">
+          <div className="bg-[#E3E3E3] w-full pt-10 pb-8  px-5 rounded-[5px] shadow-md shadow-[#a5a5a5] z-10 ">
             <h2 className="text-[#777777]"> FILL IN THE FIELDS</h2>
             <p className="font-semibold md:text-[32px] sm:text-[26px] text-[22px]  ">
               Join the Waitlist Today
@@ -273,13 +274,16 @@ function Home() {
                   className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
                 />
               </div>
-              <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] mt-12 ">
+              <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:my-12 md:my-5  ">
                 Submit
               </button>
             </form>
           </div>
         </div>
       </div>
+     
+
+     
     </div>
   );
 }
