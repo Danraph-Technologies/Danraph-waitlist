@@ -154,11 +154,13 @@ function Home() {
                 alt=""
                 className="cursor-pointer sm:w-[20px] w-[15px] "
               />
-              <img
-                src={img13}
-                alt=""
-                className="cursor-pointer sm:w-[20px] w-[15px] "
-              />
+              <a href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr" target="_blank">
+                <img
+                  src={img13}
+                  alt=""
+                  className="cursor-pointer sm:w-[20px] w-[15px] "
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -343,7 +345,10 @@ function Home() {
             </button>
           </div>
           <div className="flex items-center gap-6">
-            <a href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr " target="_blank">
+            <a
+              href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr "
+              target="_blank"
+            >
               <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
                 <img src={img25} alt="" />
               </div>
