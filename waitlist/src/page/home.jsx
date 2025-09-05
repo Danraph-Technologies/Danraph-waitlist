@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import danraphImage from "../assets/danraph-image.png";
 import img1 from "../assets/danraph-icon.png";
 import img2 from "../assets/danraph-location.png";
@@ -33,6 +33,34 @@ import img30 from "../assets/round.png";
 import img31 from "../assets/mail.png";
 
 function Home() {
+  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const formRef = useRef(null);
+  const nameInputRef = useRef(null);
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    if (email) {
+      setFormData(prev => ({ ...prev, email }));
+      formRef.current?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        nameInputRef.current?.focus();
+      }, 800);
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
   return (
     <div>
       {
@@ -108,19 +136,25 @@ function Home() {
                 alt=""
                 className=" md:-translate-y-10 -translate-y-[130px] md:w-[58px] sm:w-[38px] w-[20px]  "
               />
-              <div className="flex flex-wrap items-center justify-center md:gap-5 gap-2 ">
+              <form onSubmit={handleEmailSubmit} className="flex flex-wrap items-center justify-center md:gap-5 gap-2">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email address"
-                  className=" outline-0 relative md:w-[424px] sm:w-[380px] w-[210px] p-md:2 p-1 border-2 border-[#303030] rounded-[8px] placeholder:black "
+                  className="outline-0 relative md:w-[424px] sm:w-[380px] w-[210px] p-md:2 p-1 border-2 border-[#303030] rounded-[8px] placeholder:black"
+                  required
                 />
-                <button className=" text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-2 py-1 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer ">
+                <button 
+                  type="submit"
+                  className="text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-2 py-1 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer"
+                >
                   Join waitlist
                   <span>
                     <img src={img7} alt="" />
                   </span>
                 </button>
-              </div>
+              </form>
 
               <img
                 src={img8}
@@ -285,26 +319,40 @@ function Home() {
                 Join the Waitlist Today
               </p>
 
-              <form action="" className="flex flex-col gap-6  ">
-                <div className="flex flex-col ">
-                  <label htmlFor="" className="text-[#2A2A2A]">
+              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-6">
+                <div className="flex flex-col">
+                  <label htmlFor="name" className="text-[#2A2A2A]">
                     Name
                   </label>
                   <input
+                    ref={nameInputRef}
                     type="text"
-                    className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px]"
+                    required
                   />
                 </div>
-                <div className="flex flex-col ">
-                  <label htmlFor="" className="text-[#2A2A2A]">
+                <div className="flex flex-col">
+                  <label htmlFor="email" className="text-[#2A2A2A]">
                     Email
                   </label>
                   <input
                     type="email"
-                    className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px]"
+                    required
                   />
                 </div>
-                <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:mt-10 mb-3 ">
+                <button 
+                  type="submit"
+                  className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:mt-10 mb-3 hover:bg-[#00387d] transition-colors duration-300"
+                >
                   Submit
                 </button>
               </form>
@@ -334,19 +382,25 @@ function Home() {
             Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
             Campus.
           </h1>
-          <div className="flex flex-wrap items-center justify-center md:gap-5 gap-2 py-10 ">
+          <form onSubmit={handleEmailSubmit} className="flex flex-wrap items-center justify-center md:gap-5 gap-2 py-10">
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Your Email address"
-              className=" outline-0 relative md:w-[420px] sm:w-[380px] w-[210px]  py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black "
+              className="outline-0 relative md:w-[420px] sm:w-[380px] w-[210px] py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black"
+              required
             />
-            <button className=" text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-3 py-2 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer ">
+            <button 
+              type="submit"
+              className="text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-3 py-2 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer"
+            >
               Join waitlist
               <span>
                 <img src={img7} alt="" />
               </span>
             </button>
-          </div>
+          </form>
           <div className="flex items-center gap-6">
             <a
               href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr "
