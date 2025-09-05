@@ -285,7 +285,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-[#F6F6F6] sm:mt-14    h-[100vh] flex flex-col justify-center items-center ">
+      <div className="bg-[#F6F6F6] mt-14    h-[100vh] flex flex-col justify-center items-center ">
         <h1 className="md:text-[48px] text-[25px] px-2 max-w-[980px] w-full text-center text-[#262828] font-display ">
           Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
           Campus.
