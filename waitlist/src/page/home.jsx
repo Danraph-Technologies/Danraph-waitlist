@@ -136,7 +136,7 @@ function Home() {
             </p>
             <p className="hidden sm:block">|</p>
             <div className="flex items-center gap-1">
-              <a href="https://x.com/danraphservices">
+              <a href="https://x.com/danraphservices" target="_blank">
                 <img
                   src={img10}
                   alt=""
@@ -356,7 +356,7 @@ function Home() {
 
           <div className="flex items-center gap-2 pt-10 ">
             <img src={img31} alt="" />
-            <a href="mailto:Info@danraphservices.com" blank="_blank">
+            <a href="mailto:Info@danraphservices.com" target="_blank">
               <p className="text-[#727272] font-medium ">
                 Info@danraphservices.com
               </p>
