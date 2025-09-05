@@ -343,15 +343,25 @@ function Home() {
             </button>
           </div>
           <div className="flex items-center gap-6">
-            <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
-              <img src={img25} alt="" />
-            </div>
-            <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
-              <img src={img26} alt="" />
-            </div>
-            <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
-              <img src={img27} alt="" />
-            </div>
+            <a href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr " target="_blank">
+              <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
+                <img src={img25} alt="" />
+              </div>
+            </a>
+
+            <a
+              href="https://www.instagram.com/danraphservices/"
+              target="_blank"
+            >
+              <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
+                <img src={img26} alt="" />
+              </div>
+            </a>
+            <a href="https://x.com/danraphservices" target="_blank">
+              <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
+                <img src={img27} alt="" />
+              </div>
+            </a>
           </div>
 
           <div className="flex items-center gap-2 pt-10 ">
