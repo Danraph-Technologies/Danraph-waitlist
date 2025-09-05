@@ -154,7 +154,10 @@ function Home() {
                 alt=""
                 className="cursor-pointer sm:w-[20px] w-[15px] "
               />
-              <a href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr" target="_blank">
+              <a
+                href="https://www.facebook.com/share/1CF27NVZwA/?mibextid=wwXIfr"
+                target="_blank"
+              >
                 <img
                   src={img13}
                   alt=""
