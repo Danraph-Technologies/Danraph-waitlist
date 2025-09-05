@@ -27,7 +27,7 @@ import img24 from "../assets/cars.png";
 import img25 from "../assets/facebook1.png";
 import img26 from "../assets/instagram1.png";
 import img27 from "../assets/twitter1.png";
-import img28 from "../assets/left.png"
+import img28 from "../assets/left.png";
 import img29 from "../assets/right.png";
 import img30 from "../assets/round.png";
 import img31 from "../assets/mail.png";
@@ -290,9 +290,9 @@ function Home() {
       </div>
 
       <div className="bg-[#F6F6F6] mt-14 h-[80vh] relative  sm:h-[100vh] flex flex-col justify-center items-center ">
-        <img src={img28} alt="" className="absolute top-[150px] left-5"/>
-        <img src={img29} alt="" className="absolute bottom-28 -right-14"/>
-        <img src={img30} alt="" className="absolute bottom-24 right-32"/>
+        <img src={img28} alt="" className="absolute top-[120px] left-5 w-[200px] md:w-[375px] " />
+        <img src={img29} alt="" className="absolute md:bottom-28 bottom-5 md:right-0 -right-1 w-[200px] md:w-[467px]" />
+        <img src={img30} alt="" className="absolute bottom-20 right-44 w-[20px] md:w-[50px]" />
         <h1 className="md:text-[48px] text-[25px] px-2 max-w-[980px] w-full text-center text-[#262828] font-display ">
           Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
           Campus.
@@ -311,24 +311,24 @@ function Home() {
           </button>
         </div>
         <div className="flex items-center gap-6">
-        <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
+          <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
             <img src={img25} alt="" />
           </div>
           <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
-            <img
-              src={img26}
-              alt=""
-             
-            />
+            <img src={img26} alt="" />
           </div>
           <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
             <img src={img27} alt="" />
           </div>
         </div>
 
-        <div>
+        <div className="flex items-center gap-2 pt-10 ">
           <img src={img31} alt="" />
-          <p>Info@danraphservices.com</p>
+          <a href="mailto:Info@danraphservices.com" blank="_blank">
+            <p className="text-[#727272] font-medium ">
+              Info@danraphservices.com
+            </p>
+          </a>
         </div>
       </div>
     </div>
