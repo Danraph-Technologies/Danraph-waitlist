@@ -24,6 +24,9 @@ import img21 from "../assets/..png";
 import img22 from "../assets/leftstand.png";
 import img23 from "../assets/right-stand.png";
 import img24 from "../assets/cars.png";
+import img25 from "../assets/facebook1.png";
+import img26 from "../assets/instagram1.png";
+import img27 from "../assets/twitter1.png";
 
 function Home() {
   return (
@@ -234,10 +237,10 @@ function Home() {
         </div>
       </div>
       <div className=" relative  flex justify-center items-center px-3">
-        <img src={img23} alt="" className="absolute md:-top-8 top-0 left-0"/>
-        <img src={img22} alt=""  className="absolute bottom-0 right-8 "/>
+        <img src={img23} alt="" className="absolute md:-top-8 top-0 left-0" />
+        <img src={img22} alt="" className="absolute bottom-0 right-8 " />
 
-        <div className="grid h-[100vh]  pt-10 grid-cols-1 sm:grid-cols-[45%_53%] items-center z-10  md:grid-cols-[40%_56%] lg:gap-10 gap-3 ">
+        <div className="grid h-[100vh]  pt-10 grid-cols-1 sm:grid-cols-[45%_53%] items-center z-10  md:grid-cols-[40%_59%] lg:gap-10 gap-3 ">
           <div className="w-full z-10">
             <h2 className="lg:text-[36px] z-10 sm:text-[27px] text-[22px] font-semibold ">
               Join the Waitlist Today
@@ -274,16 +277,48 @@ function Home() {
                   className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
                 />
               </div>
-              <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:my-12 md:my-5  ">
+              <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:my-10 md:my-5  ">
                 Submit
               </button>
             </form>
           </div>
         </div>
       </div>
-     
 
-     
+      <div className="bg-[#F6F6F6] sm:mt-14    h-[100vh] flex flex-col justify-center items-center ">
+        <h1 className="md:text-[48px] text-[25px] px-2 max-w-[980px] w-full text-center text-[#262828] font-display ">
+          Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
+          Campus.
+        </h1>
+        <div className="flex flex-wrap items-center justify-center md:gap-5 gap-2 py-10 ">
+          <input
+            type="email"
+            placeholder="Your Email address"
+            className=" outline-0 relative md:w-[424px] sm:w-[380px] w-[210px]  py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black "
+          />
+          <button className=" text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-3 py-1 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer ">
+            Join waitlist
+            <span>
+              <img src={img7} alt="" />
+            </span>
+          </button>
+        </div>
+        <div className="flex items-center gap-6">
+          <div className="border flex justify-center border-black rounded-full w-[61px] h-[61px] p-3">
+            <img src={img25} alt="" />
+          </div>
+          <div className="border flex justify-center border-black rounded-full w-[61px] h-[61px] p-3 " >
+            <img
+              src={img26}
+              alt=""
+             
+            />
+          </div>
+          <div className="border flex justify-center border-black rounded-full w-[61px] h-[61px] p-3">
+            <img src={img27} alt="" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

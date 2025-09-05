@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Inter";
+  --color-primary: #1A73E8;
+  --breakpoint-lg: 1024px;
+}
+
+
 body {
     overflow-x: auto;   /* only scrolls when needed */
     min-width: 300px;
