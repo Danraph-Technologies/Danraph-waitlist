@@ -234,21 +234,23 @@ function Home() {
         </div>
       </div>
       <div className="flex justify-center items-center px-3">
-        <div className="grid  grid-cols-1 sm:grid-cols-[45%_55%]   md:grid-cols-[40%_60%] gap-3  ">
-          <div className="">
-            <h2 className="md:text-[36px] sm:text-[27px] text-[20px] font-semibold ">
+        <img src="" alt="" />
+        <img src="" alt="" />
+        <div className="grid  grid-cols-1 sm:grid-cols-[45%_53%] items-center  md:grid-cols-[40%_56%] lg:gap-10 gap-3 ">
+          <div className="w-full">
+            <h2 className="lg:text-[36px] sm:text-[27px] text-[22px] font-semibold ">
               Join the Waitlist Today
             </h2>
-            <p className="text-[#6C6C6C] md:text-[20px] sm:text-[16px] text-[13px] ">
+            <p className="text-[#6C6C6C] lg:text-[20px] sm:text-[16px] text-[13px] ">
               Don’t miss out! Be among the first to experience stress-free
               school transport.
             </p>
-            <img src={img24} alt="" className="w-[444px]  " />
+            <img src={img24} alt="" className="w-[444px]  "  />
           </div>
 
-          <div className="bg-[#E3E3E3]   p-5 rounded-[5px] shadow-md shadow-[#a5a5a5] ">
+          <div className="bg-[#E3E3E3] w-full pt-10 pb-8  px-5 rounded-[5px] shadow-md shadow-[#a5a5a5] ">
             <h2 className="text-[#777777]"> FILL IN THE FIELDS</h2>
-            <p className="font-semibold text-[32px]  ">
+            <p className="font-semibold md:text-[32px] sm:text-[26px] text-[22px]  ">
               Join the Waitlist Today
             </p>
 
@@ -259,7 +261,7 @@ function Home() {
                 </label>
                 <input
                   type="text"
-                  className="bg-white outline-0 py-[12px] px-[5px] rounded-[5px] "
+                  className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
                 />
               </div>
               <div className="flex flex-col ">
@@ -268,10 +270,10 @@ function Home() {
                 </label>
                 <input
                   type="email"
-                  className="bg-white outline-0 py-[12px] px-[5px] rounded-[5px] "
+                  className="bg-white outline-0 md:py-[12px] sm:py-[10px] py-[6px] px-[5px] rounded-[5px] "
                 />
               </div>
-              <button className="bg-[#004AAD] text-[white] py-[10px] cursor-pointer rounded-[5px] mt-10 ">
+              <button className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] mt-12 ">
                 Submit
               </button>
             </form>
