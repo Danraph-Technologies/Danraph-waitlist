@@ -85,22 +85,13 @@ function Home() {
             <div className="md:pt-[50px] pt-[20px] md:w-[800px] sm:w-[500px] w-[309px] ">
               <h1 className="md:text-[60px] sm:text-[35px] text-[25px] px-2 font-extrabold text-center ">
                 Smart Campus Shuttle at Your
-                <span className="relative  ">
-                  <svg
-                    width="360"
-                    height="75"
-                    viewBox="0 0 388 75"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                     className="absolute inset-0 md:translate-y-3 translate-y-2 "
-                  >
-                    <path d="M0 75L29.1 0H388L346.775 75H0Z" fill="#C6DFFF" />
-                  </svg>
-
-                  
-                  <span className="relative text-black md:px-7 sm:px-5 px-2 z-10 ">
-                    Fingertips
-                  </span>
+                <span
+                  className=" inline-flex md:w-[350px] md:h-[75px] w-[150px] h-[35px] sm:w-[210px] sm:h-[50px] bg-blue-200 justify-center items-center px-6"
+                  style={{
+                    clipPath: "polygon(10% 0, 100% 0, 90% 100%, 0% 100%)",
+                  }}
+                >
+                  <span className="text-black z-10 ">Fingertips</span>
                 </span>
               </h1>
               <p className="font-medium md:text-[24px] sm:text-[18px] text-[16px] p-2 text-center text-[#0A111A]">
@@ -145,11 +136,14 @@ function Home() {
             </p>
             <p className="hidden sm:block">|</p>
             <div className="flex items-center gap-1">
-              <img
-                src={img10}
-                alt=""
-                className="cursor-pointer sm:w-[20px] w-[15px] "
-              />
+              <a href="https://x.com/danraphservices">
+                <img
+                  src={img10}
+                  alt=""
+                  className="cursor-pointer sm:w-[20px] w-[15px] "
+                />
+              </a>
+
               <img
                 src={img11}
                 alt=""
