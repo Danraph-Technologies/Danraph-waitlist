@@ -289,9 +289,9 @@ function Home() {
         </div>
       </div>
 
-      <div className="bg-[#F6F6F6] mt-14 h-[80vh] relative  sm:h-[100vh] flex flex-col justify-center items-center ">
-        <img src={img28} alt="" className="absolute top-[120px] left-5 w-[200px] md:w-[375px] " />
-        <img src={img29} alt="" className="absolute md:bottom-28 bottom-5 right-0  w-[200px] md:w-[467px]" />
+      <div className="bg-[#F6F6F6] mt-14 h-[80vh] relative  sm:h-[100vh] flex flex-col justify-center items-center overflow-x-hidden ">
+        <img src={img28} alt="" className="absolute md:top-[120px] top-2 left-5 w-[150px] md:w-[250px] lg:w-[375px] " />
+        <img src={img29} alt="" className="absolute md:bottom-28 bottom-5 md:right-0 -right-5   w-[200px] md:w-[350px] lg:w-[467px]" />
         <img src={img30} alt="" className="absolute bottom-20 right-44 w-[20px] md:w-[50px]" />
         <h1 className="md:text-[48px] text-[25px] px-2 max-w-[980px] w-full text-center text-[#262828] font-display ">
           Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
