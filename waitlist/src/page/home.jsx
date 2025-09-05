@@ -30,6 +30,7 @@ import img27 from "../assets/twitter1.png";
 import img28 from "../assets/left.png"
 import img29 from "../assets/right.png";
 import img30 from "../assets/round.png";
+import img31 from "../assets/mail.png";
 
 function Home() {
   return (
@@ -289,9 +290,9 @@ function Home() {
       </div>
 
       <div className="bg-[#F6F6F6] mt-14 h-[80vh] relative  sm:h-[100vh] flex flex-col justify-center items-center ">
-        <img src={img28} alt="" className="absolute top-34 left-0"/>
-        <img src={img29} alt="" className="absolute bottom-0 right-0"/>
-        <img src={img30} alt="" className="absolute bottom-0 right-0"/>
+        <img src={img28} alt="" className="absolute top-[150px] left-5"/>
+        <img src={img29} alt="" className="absolute bottom-28 -right-14"/>
+        <img src={img30} alt="" className="absolute bottom-24 right-32"/>
         <h1 className="md:text-[48px] text-[25px] px-2 max-w-[980px] w-full text-center text-[#262828] font-display ">
           Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
           Campus.
@@ -300,7 +301,7 @@ function Home() {
           <input
             type="email"
             placeholder="Your Email address"
-            className=" outline-0 relative md:w-[424px] sm:w-[380px] w-[210px]  py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black "
+            className=" outline-0 relative md:w-[420px] sm:w-[380px] w-[210px]  py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black "
           />
           <button className=" text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-3 py-2 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer ">
             Join waitlist
@@ -323,6 +324,11 @@ function Home() {
           <div className="border flex justify-center border-black rounded-full w-[45px] h-[45px] sm:w-[61px] sm:h-[61px] p-3 cursor-pointer ">
             <img src={img27} alt="" />
           </div>
+        </div>
+
+        <div>
+          <img src={img31} alt="" />
+          <p>Info@danraphservices.com</p>
         </div>
       </div>
     </div>
