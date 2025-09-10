@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { Toaster, toast } from 'sonner';
 import danraphImage from "../assets/danraph-image.png";
 import img1 from "../assets/danraph-icon.png";
 import img2 from "../assets/danraph-location.png";
@@ -38,20 +39,92 @@ function Home() {
   const formRef = useRef(null);
   const nameInputRef = useRef(null);
 
+  const scrollToForm = () => {
+    if (formRef.current) {
+      // Get the form's position relative to the viewport
+      const formPosition = formRef.current.getBoundingClientRect().top;
+      // Get current scroll position
+      const offsetPosition = window.pageYOffset + formPosition - 200; // 100px offset from top
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Focus the name input after scroll completes
+      setTimeout(() => {
+        nameInputRef.current?.focus();
+      }, 700); // Slightly reduced delay since we're controlling the scroll
+    }
+  };
+
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (email) {
       setFormData(prev => ({ ...prev, email }));
-      formRef.current?.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => {
-        nameInputRef.current?.focus();
-      }, 800);
+      scrollToForm();
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: null, message: '' });
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    if (!formData.name || !formData.email) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://backend-services--techwithdunamix9789-guakp32e.leapcell.dev/v1/waitlist/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email.trim(),
+          full_name: formData.name.trim(),
+          notes: { source: 'website_waitlist' }
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle 422 validation errors
+        if (response.status === 422 && data.errors) {
+          const errorMessage = Object.values(data.errors).flat().join('\n');
+          throw new Error(errorMessage || 'Invalid input data');
+        }
+        throw new Error(data.message || `Error: ${response.status}`);
+      }
+
+      // Show success toast
+      toast.success('Successfully joined the waitlist! We\'ll be in touch soon.');
+      
+      // Reset form on success
+      setFormData({ name: '', email: '' });
+      setEmail('');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error(error.message || 'Failed to submit form. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -63,6 +136,7 @@ function Home() {
   };
   return (
     <div>
+      <Toaster position="top-center" richColors />
       {
         /* Top Logo*/
         <div className="flex flex-col justify-center items-center md:pb-16 pb-10 ">
@@ -319,7 +393,7 @@ function Home() {
                 Join the Waitlist Today
               </p>
 
-              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-6">
+              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="text-[#2A2A2A]">
                     Name
@@ -351,9 +425,10 @@ function Home() {
                 </div>
                 <button 
                   type="submit"
-                  className="bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] cursor-pointer rounded-[5px] lg:mt-10 mb-3 hover:bg-[#00387d] transition-colors duration-300"
+                  disabled={isSubmitting}
+                  className={`bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] rounded-[5px] lg:mt-10 mb-3 hover:bg-[#00387d] transition-colors duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
                 >
-                  Submit
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
               </form>
             </div>
