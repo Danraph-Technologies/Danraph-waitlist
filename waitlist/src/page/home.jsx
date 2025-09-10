@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Toaster, toast } from 'sonner';
+import { Toaster, toast } from "sonner";
 import danraphImage from "../assets/danraph-image.png";
 import img1 from "../assets/danraph-icon.png";
 import img2 from "../assets/danraph-location.png";
@@ -44,13 +44,13 @@ function Home() {
       // Get the form's position relative to the viewport
       const formPosition = formRef.current.getBoundingClientRect().top;
       // Get current scroll position
-      const offsetPosition = window.pageYOffset + formPosition - 200; // 100px offset from top
-      
+      const offsetPosition = window.pageYOffset + formPosition - 220; // 150px offset from top
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
-      
+
       // Focus the name input after scroll completes
       setTimeout(() => {
         nameInputRef.current?.focus();
@@ -61,13 +61,16 @@ function Home() {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      setFormData(prev => ({ ...prev, email }));
+      setFormData((prev) => ({ ...prev, email }));
       scrollToForm();
     }
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ success: null, message: '' });
+  const [submitStatus, setSubmitStatus] = useState({
+    success: null,
+    message: "",
+  });
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -76,52 +79,61 @@ function Home() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email) {
-      toast.error('Please fill in all required fields');
+      toast.error("Please fill in all required fields");
       return;
     }
 
     if (!validateEmail(formData.email)) {
-      toast.error('Please enter a valid email address');
+      toast.error("Please enter a valid email address");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://backend-services--techwithdunamix9789-guakp32e.leapcell.dev/v1/waitlist/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email.trim(),
-          full_name: formData.name.trim(),
-          notes: { source: 'website_waitlist' }
-        }),
-      });
+      const requestBody = {
+        email: formData.email.trim(),
+        full_name: formData.name.trim(),
+        notes: '', // Sending empty string as required by the API
+      };
+
+      const response = await fetch(
+        "https://backend-services--techwithdunamix9789-guakp32e.leapcell.dev/v1/waitlist/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
         // Handle 422 validation errors
         if (response.status === 422 && data.errors) {
-          const errorMessage = Object.values(data.errors).flat().join('\n');
-          throw new Error(errorMessage || 'Invalid input data');
+          const errorMessage = Object.values(data.errors).flat().join("\n");
+          throw new Error(errorMessage || "Invalid input data");
         }
         throw new Error(data.message || `Error: ${response.status}`);
       }
 
       // Show success toast
-      toast.success('Successfully joined the waitlist! We\'ll be in touch soon.');
-      
+      toast.success(
+        "Successfully joined the waitlist! We'll be in touch soon."
+      );
+
       // Reset form on success
-      setFormData({ name: '', email: '' });
-      setEmail('');
+      setFormData({ name: "", email: "" });
+      setEmail("");
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error(error.message || 'Failed to submit form. Please try again later.');
+      console.error("Error submitting form:", error);
+      toast.error(
+        error.message || "Failed to submit form. Please try again later."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -129,9 +141,9 @@ function Home() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
   return (
@@ -210,7 +222,10 @@ function Home() {
                 alt=""
                 className=" md:-translate-y-10 -translate-y-[130px] md:w-[58px] sm:w-[38px] w-[20px]  "
               />
-              <form onSubmit={handleEmailSubmit} className="flex flex-wrap items-center justify-center md:gap-5 gap-2">
+              <form
+                onSubmit={handleEmailSubmit}
+                className="flex flex-wrap items-center justify-center md:gap-5 gap-2"
+              >
                 <input
                   type="email"
                   value={email}
@@ -219,7 +234,7 @@ function Home() {
                   className="outline-0 relative md:w-[424px] sm:w-[380px] w-[210px] p-md:2 p-1 border-2 border-[#303030] rounded-[8px] placeholder:black"
                   required
                 />
-                <button 
+                <button
                   type="submit"
                   className="text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-2 py-1 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer"
                 >
@@ -393,7 +408,11 @@ function Home() {
                 Join the Waitlist Today
               </p>
 
-              <form ref={formRef} onSubmit={handleFormSubmit} className="flex flex-col gap-4">
+              <form
+                ref={formRef}
+                onSubmit={handleFormSubmit}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col">
                   <label htmlFor="name" className="text-[#2A2A2A]">
                     Name
@@ -423,12 +442,16 @@ function Home() {
                     required
                   />
                 </div>
-                <button 
+                <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] rounded-[5px] lg:mt-10 mb-3 hover:bg-[#00387d] transition-colors duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
+                  className={`bg-[#004AAD] text-[white] md:py-[10px] sm:py-[8px] py-[6px] rounded-[5px] lg:mt-10 mb-3 hover:bg-[#00387d] transition-colors duration-300 ${
+                    isSubmitting
+                      ? "opacity-70 cursor-not-allowed"
+                      : "cursor-pointer"
+                  }`}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
               </form>
             </div>
@@ -457,7 +480,10 @@ function Home() {
             Join The Waitlist Now And Be Part Of The Smarter Way To Move Around
             Campus.
           </h1>
-          <form onSubmit={handleEmailSubmit} className="flex flex-wrap items-center justify-center md:gap-5 gap-2 py-10">
+          <form
+            onSubmit={handleEmailSubmit}
+            className="flex flex-wrap items-center justify-center md:gap-5 gap-2 py-10"
+          >
             <input
               type="email"
               value={email}
@@ -466,7 +492,7 @@ function Home() {
               className="outline-0 relative md:w-[420px] sm:w-[380px] w-[210px] py-2 px-1 border-2 border-[#303030] rounded-[8px] placeholder:black"
               required
             />
-            <button 
+            <button
               type="submit"
               className="text-[12px] md:text-[16px] relative flex items-center gap-2 bg-[#E6E6E6] rounded-md px-3 md:py-3 py-2 border-2 border-[#767676] font-semibold hover:bg-[#767676] transition-all duration-300 cursor-pointer"
             >
